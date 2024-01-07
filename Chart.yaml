@@ -1,0 +1,12 @@
+apiVersion: v1
+name: bistec-test-stack
+version: 1.0.0
+kubeVersion: ">=1.14.0,<=1.22.0"
+description: "A Helm chart for my test"
+maintainers:
+  - name: Koshila Sandaru
+    email: koshila.sandaru@gmail.com
+    url: "https://github.com/Koshiz"
+icon: "https://example.com/my-chart-icon.png"
+crds:
+  - crds/custom-resource-definition.yaml

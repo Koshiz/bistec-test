@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-elasticsearch-backup
+spec:
+  schedule: "{{ .Values.elasticsearch.backupSchedule }}"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: elasticsearch-backup
+              image: {{ .Values.elasticsearch.backupImage }}
+              imagePullPolicy: {{ .Values.elasticsearch.backupImagePullPolicy }}
+              env:
+                - name: ELASTICSEARCH_URL
+                  value: "http://{{ .Release.Name }}-elasticsearch:{{ .Values.elasticsearch.httpPort }}"
+          restartPolicy: OnFailure
