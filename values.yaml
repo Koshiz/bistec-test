@@ -7,7 +7,7 @@ elasticsearch:
       memory: 2Gi
     requests:
       memory: 1Gi
-  backupImage: "YOUR_BACKUP_IMAGE:TAG"
+  backupImage: "MY_BACKUP_IMAGE:TAG"
   backupImagePullPolicy: "IfNotPresent"
   backupSchedule: "0 2 * * *"
 
